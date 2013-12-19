@@ -3,16 +3,12 @@
 
 require_once 'core/init.php';
 
-//this var dump was used to check if my token on this page
-//return false if i tried to do CSRF
-//var_dump(Token::check(Input::get('token')));
-
-
 if(Input::exists()){
+echo "Submitted";
 	if(Token::check(Input::get('token'))){
 
-		//echo "This code was no run";
-		//echo "Submitted";
+		echo "This code was no run";
+		echo "Submitted";
 		//echo Input::get('username');
 		$validate = new Validate();
 		$validation = $validate->check($_POST, array(
@@ -68,9 +64,12 @@ if(Input::exists()){
 		}
 	}
 }
+include 'includes/overall/overallHeader.php';
+//this var dump was used to check if my token on this page
+//return false if i tried to do CSRF
+//var_dump(Token::check(Input::get('token')));
 ?>
-
-<form action="" method="post">
+<form action="register.php" method="post" name ="register">
 	<div class="field">
 		<label for="username">Username</label>
 		<input type="text" name="username" id="username" value="<?PHP echo escape(Input::get('username'));?>" autocomplete = "off">
@@ -82,13 +81,15 @@ if(Input::exists()){
 	</div>
 
 	<div class="field">
-		<label for="password_again">Choose a password</label>
+		<label for="password_again">Password again</label>
 		<input type="password" name="password_again" id="password_again">
 	</div>
 	<div class="field">
 		<label for="name">Enter your name</label>
 		<input type="text" name="name" id="name" value="<?PHP echo escape(Input::get('name'));?>">
 	</div>
-	<input type="hidden" name="token" value="<?php echo Token:: generate(); ?>">
+	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 	<input type="submit" value="Register">
 </form>
+
+<?php include 'includes/overall/overallFooter.php'; ?>

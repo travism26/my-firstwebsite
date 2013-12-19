@@ -1,6 +1,6 @@
 	<nav>
 		<ul id = "topnav">
-			<li><a href="#">Home</a></li>
+			<li><a href="index.php">Home</a></li>
 			<li><a href="">Current Projects</a>
 				<ul id = "subnav">
 					<li class = ""><a href="#">Project 1</a></li>
