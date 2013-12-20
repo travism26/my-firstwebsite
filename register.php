@@ -4,9 +4,11 @@
 require_once 'core/init.php';
 
 if(Input::exists()){
-echo "Submitted";
-	if(Token::check(Input::get('token'))){
-
+echo "<div class = 'white'>Submitted";
+echo Token::check(Input::get('register_token'));
+echo "</div>";
+	//if(Token::check(Input::get('register_token'))){
+echo "Submitted2";
 		echo "This code was no run";
 		echo "Submitted";
 		//echo Input::get('username');
@@ -62,7 +64,7 @@ echo "Submitted";
 				echo $error, '<br>';
 			}
 		}
-	}
+	//}
 }
 include 'includes/overall/overallHeader.php';
 //this var dump was used to check if my token on this page
@@ -88,7 +90,7 @@ include 'includes/overall/overallHeader.php';
 		<label for="name">Enter your name</label>
 		<input type="text" name="name" id="name" value="<?PHP echo escape(Input::get('name'));?>">
 	</div>
-	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+	<input type="hidden" name="register_token" value="<?php echo Token::generate(); ?>">
 	<input type="submit" value="Register">
 </form>
 

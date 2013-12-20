@@ -21,7 +21,6 @@
 				</label>
 			</div>
 			<div class = "login">
-				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 				<input type ="submit" value = "Login">
 				<span> or <a href = "register.php" class = "register_link">Register</a></span>
 			</div>
