@@ -4,11 +4,12 @@
 require_once 'core/init.php';
 
 if(Input::exists()){
-echo "<div class = 'white'>Submitted";
-echo Token::check(Input::get('register_token'));
-echo "</div>";
+//echo "<div class = 'white'>Submitted";
+//echo Token::check(Input::get('register_token'));
+//echo "</div>";
+
 	//if(Token::check(Input::get('register_token'))){
-echo "Submitted2";
+//echo "Submitted2";
 		echo "This code was no run";
 		echo "Submitted";
 		//echo Input::get('username');
@@ -71,7 +72,7 @@ include 'includes/overall/overallHeader.php';
 //return false if i tried to do CSRF
 //var_dump(Token::check(Input::get('token')));
 ?>
-<form action="register.php" method="post" name ="register">
+<form action="" method="post" name ="register">
 	<div class="field">
 		<label for="username">Username</label>
 		<input type="text" name="username" id="username" value="<?PHP echo escape(Input::get('username'));?>" autocomplete = "off">

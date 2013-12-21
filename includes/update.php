@@ -22,6 +22,7 @@
 			</div>
 			<div class = "login">
 				<input type ="submit" value = "Login">
+				<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 				<span> or <a href = "register.php" class = "register_link">Register</a></span>
 			</div>
 		</form>
