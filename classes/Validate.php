@@ -14,7 +14,6 @@ class Validate {
 	public function check($source, $items = array()){
 		foreach ($items as $item => $rules) {
 			foreach ($rules as $rule => $rule_value) {
-				//echo "{$item} {$rule} must be {$rule_value}<br>";//echo $value;
 				$value = trim($source[$item]);
 				$item = escape($item);
 				
@@ -38,9 +37,6 @@ class Validate {
 							}	
 						break;
 						case 'unique':
-							//print_r($item);
-							//print_r($value);
-							//print_r($check = $this->_db->get($rule_value, array('$item', '=', $value)));
 							$check = $this->_db->get($rule_value, array($item, '=', $value));
 							if($check->count()) {
 								$this->addError("{$item} already exist");

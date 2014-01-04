@@ -2,8 +2,6 @@
 require_once 'core/init.php';
 
 if(Input::exists()){
-	//echo "in the input exists ";
-	//echo Token::check(Input::get('token'));
 	if (Token::check(Input::get('token'))) {
 
 		$validate = new Validate();

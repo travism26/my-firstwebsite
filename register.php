@@ -3,13 +3,8 @@
 
 require_once 'core/init.php';
 if(Input::exists()){
-//echo "<div class = 'white'>Submitted";
-//echo $basename;
-//echo "</div>";
-
 	if(Token::check(Input::get('register_token'))){
-//echo "Submitted2";
-		//echo Input::get('username');
+
 		$validate = new Validate();
 		$validation = $validate->check($_POST, array(
 			'username' => array(
@@ -37,7 +32,6 @@ if(Input::exists()){
 			$user = new User();
 			
 			$salt = Hash::salt(32);
-			//die();
 
 			try{
 
@@ -63,9 +57,6 @@ if(Input::exists()){
 	}
 }
 include 'includes/overall/overallHeader.php';
-//this var dump was used to check if my token on this page
-//return false if i tried to do CSRF
-//var_dump(Token::check(Input::get('token')));
 ?>
 <div class = "clear">
 	<form action="" method="post" name ="register">
