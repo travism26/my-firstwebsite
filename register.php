@@ -2,13 +2,12 @@
 <?php
 
 require_once 'core/init.php';
-
 if(Input::exists()){
 //echo "<div class = 'white'>Submitted";
-//echo Token::check(Input::get('register_token'));
+//echo $basename;
 //echo "</div>";
 
-	//if(Token::check(Input::get('register_token'))){
+	if(Token::check(Input::get('register_token'))){
 //echo "Submitted2";
 		//echo Input::get('username');
 		$validate = new Validate();
@@ -61,7 +60,7 @@ if(Input::exists()){
 		}else{
 			//there are errors and output them
 		}
-	//}
+	}
 }
 include 'includes/overall/overallHeader.php';
 //this var dump was used to check if my token on this page

@@ -21,8 +21,7 @@ if(Input::exists()){
 			if($login){
 				Redirect::to('index.php');
 			} else {
-				validation::addError("<p>Sorry, username or password are incorrect please try again</p>");
-				//echo "<p>Sorry, logging in failed.</p>";
+				$validation->addError("Sorry, username or password are incorrect please try again");
 			}
 
 		} else {
