@@ -24,6 +24,16 @@ body{
 #logo{
 	padding: 20px;
 }
+.clear{
+	clear: both;
+}
+.error{
+	margin-top: 5px;
+	border: dashed 1px red;
+	color:red;
+	font-family:Arial;
+	font-weight:bold;
+}
 #top_header{
 	background: rgba(0,0,0,0.25);
 	color: white;
@@ -42,6 +52,68 @@ body{
 	rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.3);
 
 }
+#main_section{
+	display: -webkit-box;
+	-webkit-box-orient:horizontal;
+	-webkit-box-flex:1;
+	background: #ECF8E0;
+	min-height:500px;
+	
+}
+/* This will be where the main content will be stored it will be a flex box layout */
+#main_content{
+	display: -webkit-box;
+	-webkit-box-orient:horizontal;
+	-webkit-box-flex:1;
+}
+/* This is where all the news will go updates, events...etc.  */
+#updates{
+	border-left: dashed 1px grey;
+	background-color: #FDF5E6;
+	padding: 10px 5px 5px 10px;
+	width:260px;
+	/*max-width: 200px;*/
+	
+}
+#updates p{
+	padding-left:20px; 
+	font-size: 12px;
+}
+#updates h2{
+	font-size: 16px;
+}
+section{
+	padding: 10px 5px 5px 10px;
+}
+footer{
+	color: white;
+	background: rgba(0,0,0,0.7);
+	border-radius: 0 0 5px 5px;
+	padding: 10px 10px 10px 10px;
+	text-align: center;
+}
+.login{
+	float: right;
+	clear: both;
+}
+#login_form{
+	display: block;
+	height: 100px;
+	clear: both;
+}
+.register_link{
+	text-decoration: none;
+	color: currentcolor;
+}
+.register_link:hover{
+	color: orange;
+}
+.white{
+	color:white;
+	border: 1px solid white;
+}
+
+/* This below will contain the navigation css properties */
 
 nav #subnav {
 	display: none;
@@ -102,61 +174,4 @@ nav #subnav li {
 nav #subnav li:hover a {
 	color: orange;
 	background: rgba(0,0,0,0.5);
-}
-
-
-#main_section{
-	display: -webkit-box;
-	-webkit-box-orient:horizontal;
-	-webkit-box-flex:1;
-	background: #ECF8E0;
-	min-height:500px;
-	
-}
-/* This will be where the main content will be stored it will be a flex box layout */
-#main_content{
-	display: -webkit-box;
-	-webkit-box-orient:horizontal;
-	-webkit-box-flex:1;
-}
-/* This is where all the news will go updates, events...etc.  */
-#updates{
-
-	border-left: dashed 1px grey;
-	background-color: #FDF5E6;
-	padding: 10px 5px 5px 10px;
-	width:260px;
-	/*max-width: 200px;*/
-	
-}
-#updates p{
-	padding-left:20px; 
-	font-size: 12px;
-}
-#updates h2{
-	font-size: 16px;
-}
-section{
-	padding: 10px 5px 5px 10px;
-}
-footer{
-	color: white;
-	background: rgba(0,0,0,0.7);
-	border-radius: 0 0 5px 5px;
-	padding: 10px 10px 10px 10px;
-	text-align: center;
-}
-.login{
-	float: right;
-}
-.register_link{
-	text-decoration: none;
-	color: currentcolor;
-}
-.register_link:hover{
-	color: orange;
-}
-.white{
-	color:white;
-	border: 1px solid white;
 }

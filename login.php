@@ -21,14 +21,12 @@ if(Input::exists()){
 			if($login){
 				Redirect::to('index.php');
 			} else {
-				echo "<p>Sorry, logging in failed.</p>";
+				validation::addError("<p>Sorry, username or password are incorrect please try again</p>");
+				//echo "<p>Sorry, logging in failed.</p>";
 			}
 
 		} else {
-			
-			foreach ($validation->errors() as $error) {
-				echo $error, '<br>';
-			}
+			//errors exist and output errors
 		}
 
 	}

@@ -10,8 +10,6 @@ if(Input::exists()){
 
 	//if(Token::check(Input::get('register_token'))){
 //echo "Submitted2";
-		echo "This code was no run";
-		echo "Submitted";
 		//echo Input::get('username');
 		$validate = new Validate();
 		$validation = $validate->check($_POST, array(
@@ -61,9 +59,7 @@ if(Input::exists()){
 			}
 			
 		}else{
-			foreach ($validation->errors() as $error) {
-				echo $error, '<br>';
-			}
+			//there are errors and output them
 		}
 	//}
 }
@@ -72,27 +68,28 @@ include 'includes/overall/overallHeader.php';
 //return false if i tried to do CSRF
 //var_dump(Token::check(Input::get('token')));
 ?>
-<form action="" method="post" name ="register">
-	<div class="field">
-		<label for="username">Username</label>
-		<input type="text" name="username" id="username" value="<?PHP echo escape(Input::get('username'));?>" autocomplete = "off">
-	</div>
+<div class = "clear">
+	<form action="" method="post" name ="register">
+		<div class="field">
+			<label for="username">Username</label>
+			<input type="text" name="username" id="username" value="<?PHP echo escape(Input::get('username'));?>" autocomplete = "off">
+		</div>
 
-	<div class="field">
-		<label for="password">Choose a password</label>
-		<input type="password" name="password" id="password">
-	</div>
+		<div class="field">
+			<label for="password">Choose a password</label>
+			<input type="password" name="password" id="password">
+		</div>
 
-	<div class="field">
-		<label for="password_again">Password again</label>
-		<input type="password" name="password_again" id="password_again">
-	</div>
-	<div class="field">
-		<label for="name">Enter your name</label>
-		<input type="text" name="name" id="name" value="<?PHP echo escape(Input::get('name'));?>">
-	</div>
-	<input type="hidden" name="register_token" value="<?php echo Token::generate(); ?>">
-	<input type="submit" value="Register">
-</form>
-
+		<div class="field">
+			<label for="password_again">Password again</label>
+			<input type="password" name="password_again" id="password_again">
+		</div>
+		<div class="field">
+			<label for="name">Enter your name</label>
+			<input type="text" name="name" id="name" value="<?PHP echo escape(Input::get('name'));?>">
+		</div>
+		<input type="hidden" name="register_token" value="<?php echo Token::generate(); ?>">
+		<input type="submit" value="Register">
+	</form>
+</div>
 <?php include 'includes/overall/overallFooter.php'; ?>
