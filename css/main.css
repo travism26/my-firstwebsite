@@ -62,7 +62,7 @@ body{
 }
 /* This will be where the main content will be stored it will be a flex box layout */
 #main_content{
-	display: -webkit-box;
+	display: block;
 	-webkit-box-orient:horizontal;
 	-webkit-box-flex:1;
 }
