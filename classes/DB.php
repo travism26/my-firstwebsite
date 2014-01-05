@@ -33,7 +33,6 @@ class DB{
 					$x++;
 				}
 			}
-
 			if ($this->_query->execute()) {
 				//echo "Success";
 				$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);

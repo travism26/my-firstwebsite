@@ -4,7 +4,8 @@ class User{
 			$_data,
 			$_sessionName,
 			$_cookieName,
-			$_isLoggedIn;
+			$_isLoggedIn,
+			$_postData;
 
 	public function __construct($user = null){
 		$this->_db = DB::getInstance();
@@ -30,20 +31,16 @@ class User{
 	}
 
 	public function update($fields = array(), $id = null){
-
 		if(!$id && $this->isLoggedIn()){
 			$id = $this->data()->id;
 		}
-
 		if(!$this->_db->update('users', $id, $fields)){
 			throw new Exception("Error Processing Request");
-			
 		}
 	}
 	public function create($fields = array()){
 		if(!$this->_db->insert('users', $fields)){
-			throw new Exception("this was an error while registering a user");
-			
+			throw new Exception("this was an error while registering a user");	
 		}
 	}
 
@@ -56,10 +53,8 @@ class User{
 				$this->_data = $data->first();
 				return true;
 			}
-
 		}
 		return false;
-
 	}
 
 	public function login($username = null, $password = null, $remember = false){
@@ -130,14 +125,24 @@ class User{
 		return $this->_isLoggedIn;
 	}
 	public function logout(){
-	
-
 		$this->_db->delete('users_session', array('user_id', '=', $this->data()->id));
 		echo 'users_session', array('user_id', '=', $this->data()->id);
 		//die();
 		Session::delete($this->_sessionName);
 		Cookie::delete($this->_cookieName);
 	}
+	public function getPost($user){
+		print_r($user);
+		echo $user;
+		$post_data = $this->_db->get('post', array($field, '=', $user));
+		print_r($post_data);
+		$this->_postData =$post_data;
+	}
+	public function postData(){
+		echo $this->_postData;
+		return $this->_postData;
+	}
+
 }
 
 ?>
