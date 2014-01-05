@@ -1,7 +1,7 @@
 	<div id="login_form">
 		<form action = "login.php" method = "post" name = "login">
 			<div class = "login">
-				<label for="username">Login:</label>
+				<label for="username">Username:</label>
 				<input type = "text" name = "username" id ="username">
 			</div>
 			

@@ -21,11 +21,18 @@ if(Input::exists()){
 				'required'=> true,
 				'matches' => 'password'
 			), 
-			'name' => array(
-				'required' => true,
+			'first_name' => array(
 				'min' => 2,
-				'max' => 50
-			)
+				'max' => 25
+			),
+			'last_name' => array(
+				'min' => 2,
+				'max' => 25
+			),
+			'email' => array(
+				'min' => 2,
+				'max' => 55
+			)		
 		));
 
 		if($validation->passed()){
@@ -34,12 +41,14 @@ if(Input::exists()){
 			$salt = Hash::salt(32);
 
 			try{
-
+				//This is where we get the input values from the form
 				$user->create(array(
 					'username' => Input::get('username') ,
 					'password' => Hash::make(Input::get('password'), $salt),
 					'salt' => $salt,
-					'name' => Input::get('name'),
+					'first_name' => Input::get('first_name'),
+					'last_name' => Input::get('last_name'),
+					'email' => Input::get('email'),
 					'joined' => date('Y-m-d H:i:d'),
 					'group' => 1
 				));
@@ -59,7 +68,7 @@ if(Input::exists()){
 }
 include 'includes/overall/overallHeader.php';
 ?>
-<div class = "clear">
+<div>
 	<form action="" method="post" name ="register">
 		<div class="field">
 			<label for="username">Username</label>
@@ -76,9 +85,17 @@ include 'includes/overall/overallHeader.php';
 			<input type="password" name="password_again" id="password_again">
 		</div>
 		<div class="field">
-			<label for="name">Enter your name</label>
-			<input type="text" name="name" id="name" value="<?PHP echo escape(Input::get('name'));?>">
+			<label for="first_name">First Name</label>
+			<input type="text" name="first_name" id="name" value="<?PHP echo escape(Input::get('first_name'));?>">
 		</div>
+		<div class="field">
+			<label for="last_name">Last Name</label>
+			<input type="text" name="last_name" id="name" value="<?PHP echo escape(Input::get('last_name'));?>">
+		</div>
+		<div class="field">
+			<label for="email">Email</label>
+			<input type="text" name="email" id="name" value="<?PHP echo escape(Input::get('email'));?>">
+		</div>		
 		<input type="hidden" name="register_token" value="<?php echo Token::generate(); ?>">
 		<input type="submit" value="Register">
 	</form>

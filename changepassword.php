@@ -42,8 +42,6 @@ if (Input::exists()) {
 				Session::flash('home', 'Your password have been changed!');
 				Redirect::to('index.php');
 			}
-
-
 		} else {
 			foreach ($validation->errors() as $error) {
 				echo $error, '<br>';
