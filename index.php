@@ -14,6 +14,13 @@ if(Session::exists('home')){
 integrated into Firefox, IE, and other browsers some of the settings will not display properly.
 </span>
 
+<?php
+	//If the user is logged in we will display some data
+	if($user->isLoggedIn()){
 
+		//If the user is loggedin we want to display some post data.
+	}
+
+?>
 
 <?php include 'includes/overall/overallFooter.php'; ?>

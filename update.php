@@ -20,15 +20,12 @@ if(Input::exists()){
 				'max' => 50
 			)
 		));
-		if($validation->passed()){
-			
+		if($validation->passed()){	
 			//update function for updating the users full name
-
 			try{
 				$user->update(array(
 					'name' => Input::get('name')
 				));
-
 				Session::flash('home', 'Your Details have been updated!');
 				Redirect::to('index.php');
 			} catch(Exception $e) {

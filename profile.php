@@ -8,8 +8,6 @@ if(!$username = Input::get('user')){
 	if(!$user->exists()){
 		Redirect::to(404);
 	} else {
-		//echo "Exists";
-
 		$data = $user->data();
 	}
 	?>
@@ -19,5 +17,5 @@ if(!$username = Input::get('user')){
 	<p>Full name: <?php echo escape($data->first_name); ?></p>
 
 	<?php
-}
+}//else
 ?>
