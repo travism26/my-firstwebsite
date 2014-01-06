@@ -29,6 +29,20 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 
 				if($validation->passed()){
 					//if the validation passes we need to post the message
+					try{
+						//This is where we get the input values from the form
+						$user->createPost(array(
+							'message' => Input::get('message'),
+							'user_id' => $user->data()->id
+						));
+					
+					Session::flash('home', 'You registered successfully!');
+					$login = $user->login(Input::get('username'), Input::get('password'), $remember);
+					Redirect::to('index.php');
+
+					} catch(Exception $e){
+						die($e->getMessage());
+					}
 				} else {
 					echo "Error no input avaiable";
 				}
@@ -41,7 +55,7 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 				<label for="message" class="post_label">Message:</label>
 			</div>
 			<div>
-				<textarea type="textarea" name="message" class="post_input_text"></textarea>
+				<textarea type="textarea" name="message" class="post_input_text" value=""><?PHP echo escape(Input::get('message'));?></textarea>
 			</div>
 			<div>
 				<input type="submit" value="Post" class="post_submit">
