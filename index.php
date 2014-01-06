@@ -23,7 +23,8 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 				$validate = new Validate();
 				$validation = $validate->check($_POST, array(
 					'message' => array(
-						'min' => 1
+						'required' => true,
+						'min' => 6,
 					)
 				));
 
@@ -68,7 +69,7 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 		//If the user is loggedin we want to display some post data.
 		//this creates the SQL script to load the post data as an object.
 		$postDataSql = DB::getInstance()->get('post', array('user_id','=',$user->data()->id));
-		foreach ($postDataSql->results() as $postDataSql) { 
+		foreach ($postDataSql->results() as $postDataSql) {
 		 ?>
 			<div class="post">
 				<div class="post_header">

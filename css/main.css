@@ -119,6 +119,8 @@ footer{
 	border-radius: 25px;
 	background: lightblue;
 	font-family: Arial Rounded MT Bold;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+
 }
 .post_header{
 	margin-top: 10px;
@@ -135,6 +137,7 @@ footer{
 	-moz-border-radius:7px;
 	-webkit-border-radius:7px;
 	background-color:lightblue;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
 }
 .post_input_text{
 	border-radius: 9px;
