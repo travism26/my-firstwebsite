@@ -44,6 +44,12 @@ class User{
 		}
 	}
 
+	public function createPost($fields = array()){
+		if(!$this->_db->insert('post', $fields)){
+			throw new Exception("this was an error while registering a user");	
+		}
+	}
+
 	public function find($user = null){
 		if($user){
 			$field = (is_numeric($user)) ? 'id' : 'username';

@@ -17,6 +17,23 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 <?php
 	//If the user is logged in we will display some data
 	if($user->isLoggedIn()){
+		if(Input::exists()){
+			if(Token::check(Input::get('post_token'))){
+
+				$validate = new Validate();
+				$validation = $validate->check($_POST, array(
+					'message' => array(
+						'min' => 1
+					)
+				));
+
+				if($validation->passed()){
+					//if the validation passes we need to post the message
+				} else {
+					echo "Error no input avaiable";
+				}
+			}//token::check
+		}//input::exists
 ?>
 	<div class="post_input">
 		<form method="post" action="index.php">
@@ -28,6 +45,7 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 			</div>
 			<div>
 				<input type="submit" value="Post" class="post_submit">
+				<input type="hidden" name="post_token" value="<?php echo Token::generate(); ?>">
 			</div>
 		</form>
 	</div>
