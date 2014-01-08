@@ -3,7 +3,7 @@ require_once 'core/init.php';
 
 include 'includes/overall/overallHeader.php';
 if(!$username = Input::get('user')){
-	Redirect::to('index.php');
+	//Redirect::to('index.php');
 } else {
 	$other_user = new User($username);
 	if(!$other_user->exists()){
@@ -23,6 +23,9 @@ if(!$username = Input::get('user')){
 				));
 
 				if($validation->passed()){
+
+					print_r($data);
+					//die();
 					//if the validation passes we need to post the message
 					try{
 						//This is where we get the input values from the form
@@ -31,10 +34,7 @@ if(!$username = Input::get('user')){
 							'user_id' => $user->data()->id,
 							'receiver_id' => $data->id
 						));
-					
-					Session::flash('home', 'You registered successfully!');
-					$login = $user->login(Input::get('username'), Input::get('password'), $remember);
-					Redirect::to('index.php');
+					Redirect::to("profile.php?user=".$data->username);
 					} catch(Exception $e){
 						die($e->getMessage());
 					}
@@ -46,11 +46,12 @@ if(!$username = Input::get('user')){
 ?>
 
 	<h3><?php echo escape($data->username); ?></h3>
+	<h3><?php echo "profile.php?user=".$data->username; ?></h3>
 
 	<p>Full name: <?php echo escape($data->first_name); ?></p>
 	<p>id: <?php echo escape($data->id); ?></p>
 	<div class="post_input">
-		<form method="post" action="index.php">
+		<form method="post" action="">
 			<div>
 				<label for="message" class="post_label">Message:</label>
 			</div>
