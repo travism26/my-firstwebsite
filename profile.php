@@ -3,7 +3,7 @@ require_once 'core/init.php';
 
 include 'includes/overall/overallHeader.php';
 if(!$username = Input::get('user')){
-	//Redirect::to('index.php');
+	Redirect::to('index.php');
 } else {
 	$other_user = new User($username);
 	if(!$other_user->exists()){
