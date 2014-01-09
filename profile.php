@@ -24,7 +24,7 @@ if(!$username = Input::get('user')){
 
 				if($validation->passed()){
 
-					print_r($data);
+					//print_r($data);
 					//die();
 					//if the validation passes we need to post the message
 					try{
@@ -64,8 +64,27 @@ if(!$username = Input::get('user')){
 			</div>
 		</form>
 	</div>
-
-<?php
+		<?php
+		//If the user is loggedin we want to display some post data.
+		//this creates the SQL script to load the post data as an object.
+		$postDataSql = DB::getInstance()->get('post', array('receiver_id','=',$user->data()->id));
+		foreach ($postDataSql->results() as $postDataSql) {
+			$username = DB::getInstance()->get('users', array('id','=',$postDataSql->user_id));
+		 ?>
+			<div class="post">
+				<div class="post_header">
+					<a href="profile.php?user=<?php echo escape($username->first()->username); ?>" class = "register_link"><?php echo escape($username->first()->username); ?></a> says:
+				</div>
+				<div class="post_message">
+					<p>
+					<?php
+						echo $postDataSql->message, '<br>';
+					?>
+					</p>
+				</div>
+			</div>
+<?php 
+}//foreach() 
 }//else
 ?>
 

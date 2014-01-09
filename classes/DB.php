@@ -62,10 +62,6 @@ class DB{
 	}
 
 	public function get($table, $where){
-		//print_r('SELECT *');
-		//print_r($table);
-		//print_r($where);
-
 		return $this->action('SELECT *', $table, $where);
 	}
 	public function delete($table, $where){

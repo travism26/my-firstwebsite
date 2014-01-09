@@ -4,8 +4,7 @@ class User{
 			$_data,
 			$_sessionName,
 			$_cookieName,
-			$_isLoggedIn,
-			$_postData;
+			$_isLoggedIn;
 
 	public function __construct($user = null){
 		$this->_db = DB::getInstance();
@@ -137,18 +136,6 @@ class User{
 		Session::delete($this->_sessionName);
 		Cookie::delete($this->_cookieName);
 	}
-	public function getPost($user){
-		print_r($user);
-		echo $user;
-		$post_data = $this->_db->get('post', array($field, '=', $user));
-		print_r($post_data);
-		$this->_postData =$post_data;
-	}
-	public function postData(){
-		echo $this->_postData;
-		return $this->_postData;
-	}
-
 }
 
 ?>

@@ -67,12 +67,14 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 		<?php
 		//If the user is loggedin we want to display some post data.
 		//this creates the SQL script to load the post data as an object.
-		$postDataSql = DB::getInstance()->get('post', array('user_id','=',$user->data()->id));
+		$postDataSql = DB::getInstance()->get('post', array('receiver_id','=',$user->data()->id));
 		foreach ($postDataSql->results() as $postDataSql) {
+			$username = DB::getInstance()->get('users', array('id','=',$postDataSql->user_id));
+			//$post_user_data = $username->results();
 		 ?>
 			<div class="post">
 				<div class="post_header">
-					<a href="profile.php?user=<?php echo escape($user->data()->username); ?>" class = "register_link"><?php echo escape($user->data()->username); ?></a> says:
+					<a href="profile.php?user=<?php echo escape($username->first()->username); ?>" class = "register_link"><?php echo escape($username->first()->username); ?></a> says:
 				</div>
 				<div class="post_message">
 					<p>
