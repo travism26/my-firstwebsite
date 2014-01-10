@@ -2,6 +2,11 @@
 require_once 'core/init.php';
 
 include 'includes/overall/overallHeader.php';
+if(!$user->isLoggedIn()){
+Session::flash('home', 'You must login before you can view peoples pages!');
+Redirect::to('index.php');
+
+}
 if(!$username = Input::get('user')){
 	Redirect::to('index.php');
 } else {

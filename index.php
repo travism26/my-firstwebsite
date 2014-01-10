@@ -37,7 +37,7 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 							'user_id' => $user->data()->id
 						));
 					
-					Session::flash('home', 'You registered successfully!');
+					Session::flash('home', 'You logged in!');
 					$login = $user->login(Input::get('username'), Input::get('password'), $remember);
 					Redirect::to('index.php');
 					} catch(Exception $e){
