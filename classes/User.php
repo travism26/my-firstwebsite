@@ -136,6 +136,7 @@ class User{
 		Session::delete($this->_sessionName);
 		Cookie::delete($this->_cookieName);
 	}
+	
 }
 
 ?>
