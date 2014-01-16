@@ -109,6 +109,10 @@ class DB{
 		return false;
 	}
 
+		public function getSearch($table, $where){
+		return $this->action('SELECT *', $table, $where);
+	}
+
 	public function results(){
 		return $this->_results;
 	}

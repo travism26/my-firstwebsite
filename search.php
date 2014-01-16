@@ -32,11 +32,17 @@
 if (isset($_POST['partialName']) === true && empty($_POST) === false) {
 	$usernames = $_POST['partialName'];
 	//echo $usernames;
-	$search_username = DB::getInstance()->get('users', array('first_name','like',$usernames));
+	$search_username = DB::getInstance()->getSearch('users', array('first_name','like', "%".$usernames ."%"));
+	if ($_POST['partialName'] === "") {
+		echo "";
+	}else{
 		foreach ($search_username->results() as $name) {
 			//$username = DB::getInstance()->get('users', array('username','like',$usernames));
-			echo "<div class = 'search_results'>".$name->username."<div>";
+			echo "<div class = 'search_results'>". $name->username ."<div>";
 			//$post_user_data = $username->results();
 		}//foreach loop
+	}
+} else {
+	echo "hello";
 }
 ?>
