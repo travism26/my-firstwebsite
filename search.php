@@ -44,7 +44,7 @@ if (isset($_POST['partialName']) === true && empty($_POST) === false) {
 	}else{
 		foreach ($search_username->results() as $name) {
 			//$username = DB::getInstance()->get('users', array('username','like',$usernames));
-			?><li class="search_results" style="list-style:none;"><?php echo $name->username ?></li><?php
+			?><div class="search_results" style="list-style:none;"><a href="profile.php?user=<?php echo $name->username; ?>"><?php echo $name->username ?></a></div><?php
 			//$post_user_data = $username->results();
 		}//foreach loop
 	}

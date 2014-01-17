@@ -1,14 +1,14 @@
 .search_results{
-	float: none; 
+	float: none;
 	list-style: none;
 	background: rgba(0,0,0,0.5);
 	border-top: 1px solid #6b727c;
 	border-bottom: 1px solid #575f6a;
 	border-left: 1px solid #575f6a;
-	position: relative;
 	width: 160px;
 	-webkit-transition: color 2s;
 
 }
 #results{
+	position: absolute;
 }
