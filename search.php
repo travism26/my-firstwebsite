@@ -1,5 +1,11 @@
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<style type="text/css">
+	<?php include 'css/search.css'; ?>
+</style>
+
 <?php
 	require_once 'core/init.php';
+
 	//echo $_POST['partialName'];
 
 /*
@@ -38,7 +44,7 @@ if (isset($_POST['partialName']) === true && empty($_POST) === false) {
 	}else{
 		foreach ($search_username->results() as $name) {
 			//$username = DB::getInstance()->get('users', array('username','like',$usernames));
-			echo "<div class = 'search_results'>". $name->username ."<div>";
+			?><li class="search_results" style="list-style:none;"><?php echo $name->username ?></li><?php
 			//$post_user_data = $username->results();
 		}//foreach loop
 	}
