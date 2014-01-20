@@ -222,3 +222,6 @@ nav #subnav li:hover a {
 	color: orange;
 	background: rgba(0,0,0,0.5);
 }
+.search_bar{
+	width: 100%;
+}

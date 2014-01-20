@@ -1,14 +1,21 @@
 .search_results{
+	
 	float: none;
 	list-style: none;
 	background: rgba(0,0,0,0.5);
 	border-top: 1px solid #6b727c;
 	border-bottom: 1px solid #575f6a;
 	border-left: 1px solid #575f6a;
-	width: 160px;
+	
 	-webkit-transition: color 2s;
-
+}
+.search_results a{
+	text-decoration: none;
 }
 #results{
+	margin-left: 12px;
 	position: absolute;
+}
+.search_bar{
+	width: 100%;
 }

@@ -1,4 +1,3 @@
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 	<?php include 'css/search.css'; ?>
 </style>
@@ -44,7 +43,13 @@ if (isset($_POST['partialName']) === true && empty($_POST) === false) {
 	}else{
 		foreach ($search_username->results() as $name) {
 			//$username = DB::getInstance()->get('users', array('username','like',$usernames));
-			?><div class="search_results" style="list-style:none;"><a href="profile.php?user=<?php echo $name->username; ?>"><?php echo $name->username ?></a></div><?php
+			?><div class="search_results" style="list-style:none;">
+			<a href="profile.php?user=<?php echo $name->username; ?>">
+			<?php 
+			echo $name->first_name." ";
+			echo $name->last_name;
+			 ?>
+			</a></div><?php
 			//$post_user_data = $username->results();
 		}//foreach loop
 	}
