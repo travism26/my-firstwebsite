@@ -225,3 +225,12 @@ nav #subnav li:hover a {
 .search_bar{
 	width: 100%;
 }
+
+/* Work out tables */
+
+.workout_table_row{
+	padding: 5px;
+}
+.workout_table{
+	border: 1px solid black;
+}

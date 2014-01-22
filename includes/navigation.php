@@ -3,7 +3,7 @@
 			<li><a href="index.php">Home</a></li>
 			<li><a href="">Current Projects</a>
 				<ul id = "subnav">
-					<li class = ""><a href="#">Project 1</a></li>
+					<li class = ""><a href="workout.php">Workout Manager</a></li>
 					<li><a href="#">Project 2</a></li>
 					<li><a href="#">Project 3</a></li>
 					<li><a href="#">Project 4</a></li>
