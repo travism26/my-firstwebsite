@@ -9,6 +9,8 @@ Redirect::to('index.php');
 }
 if(!$username = Input::get('user')){
 	Redirect::to('index.php');
+} elseif (Input::get('user') === $user->data()->username) {
+	Redirect::to('index.php');
 } else {
 	$other_user = new User($username);
 	if(!$other_user->exists()){

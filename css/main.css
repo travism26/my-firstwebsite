@@ -230,7 +230,14 @@ nav #subnav li:hover a {
 
 .workout_table_row{
 	padding: 5px;
+	
 }
 .workout_table{
 	border: 1px solid black;
+}
+
+.profile{
+	background: #f9f9f9;
+	border: 1px dashed #ccc;
+	padding: 5px;
 }

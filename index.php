@@ -34,11 +34,10 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 						//This is where we get the input values from the form
 						$user->createPost(array(
 							'message' => Input::get('message'),
-							'user_id' => $user->data()->id
+							'user_id' => $user->data()->id,
+							'receiver_id' => $user->data()->id
 						));
 					
-					Session::flash('home', 'You logged in!');
-					$login = $user->login(Input::get('username'), Input::get('password'), $remember);
 					Redirect::to('index.php');
 					} catch(Exception $e){
 						die($e->getMessage());

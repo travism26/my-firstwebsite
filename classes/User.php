@@ -45,8 +45,14 @@ class User{
 
 	public function createPost($fields = array()){
 		if(!$this->_db->insert('post', $fields)){
-			throw new Exception("this was an error while registering a user");	
+			throw new Exception("this was an error while posting a message");	
 		}
+	}
+
+	public function change_profile_image($user_id, $file_temp){
+		//if(!this->_db->update('users',   )){
+
+		//}
 	}
 
 	public function find($user = null){
