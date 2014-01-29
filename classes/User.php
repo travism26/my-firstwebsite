@@ -49,10 +49,23 @@ class User{
 		}
 	}
 
-	public function change_profile_image($user_id, $file_temp){
-		//if(!this->_db->update('users',   )){
-
-		//}
+	public function change_profile_image($fields = array(), $id = null){
+		
+		$file_path = 'images/profile/' . substr(md5(time()), 0,10) . '.' . $fields['file_extn'];
+		//$file_extn = $fields['file_extn'];
+		//echo $file_path;
+		//die();
+		move_uploaded_file($fields['profile_pic'], $file_path);
+		$file_local = array(
+			'profile_pic' => $file_path);
+		//echo $file_extn;
+		//die();
+		if(!$id && $this->isLoggedIn()){
+			$id = $this->data()->id;
+		}
+		if(!$this->_db->update('users', $id, $file_local)){
+			throw new Exception("Error Processing Request");
+		}
 	}
 
 	public function find($user = null){

@@ -21,7 +21,13 @@
 				$file_temp = $_FILES['profile']['tmp_name'];
 
 				if(in_array($file_extn, $allow)){
-					$user->change_profile_image($user->data()->id, $file_temp);
+					//$user->update($user->data()->id, $file_temp);
+					$user->change_profile_image(array(
+							'profile_pic' => $file_temp,
+							'file_extn' => $file_extn
+						),$user->data()->id);
+					echo "Success";
+					//echo $file_temp;
 				} else{
 					echo "Incorrect file type. Allowed: ";
 					echo implode(', ', $allow);

@@ -85,7 +85,7 @@ class DB{
 			if(!$this->query($sql, $fields)->error()){
 				return true;
 			}
-			echo $sql;
+			//echo $sql;
 		}
 		return false;
 	}
