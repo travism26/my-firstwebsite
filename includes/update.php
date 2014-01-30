@@ -1,5 +1,8 @@
-<section id = "updates">
+<?php
+if (!$user->isLoggedIn()) {
 
+?>
+<section id = "updates">
 <?php
 //in here i want to check if the user is logged in and if so show their updates. else get them to log in / register!
 $basename = substr(strtolower(basename($_SERVER['PHP_SELF'])),0,strlen(basename($_SERVER['PHP_SELF']))-4);
@@ -22,3 +25,7 @@ else if(!empty($validation) && $basename === "register"){
 	}
 ?>
 </section>
+
+<?php
+}
+?>

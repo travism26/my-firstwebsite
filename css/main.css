@@ -222,8 +222,9 @@ nav #subnav li:hover a {
 	color: orange;
 	background: rgba(0,0,0,0.5);
 }
-.search_bar{
-	width: 100%;
+.search{
+	padding: 15px 20px;
+	float: right;
 }
 
 /* Work out tables */
@@ -240,4 +241,10 @@ nav #subnav li:hover a {
 	background: #f9f9f9;
 	border: 1px dashed #ccc;
 	padding: 5px;
+	width: 25%;
+	min-width: 25%;
+}
+.profile_picture{
+	height: 150px;
+	width: 95%;
 }

@@ -4,7 +4,7 @@
 			<li><a href="">Current Projects</a>
 				<ul id = "subnav">
 					<li class = ""><a href="workout.php">Workout Manager</a></li>
-					<li><a href="#">Project 2</a></li>
+					<li><a href="user_settings.php">User Settings</a></li>
 					<li><a href="#">Project 3</a></li>
 					<li><a href="#">Project 4</a></li>
 				</ul>
@@ -18,5 +18,12 @@
 			</li>
 			<li><a href="">Web Applications</a></li>
 			<li><a href="">Contact Me</a></li>
+			<div class="search">	
+				<input style="width: 90%;" class="search_bar" type="text" id="name" onkeyup="getUsername(this.value)" autocomplete='off'>
+				<div id="results">			
+				</div>
+			</div>
+				<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+				<script src ="js/global.js"></script>
 		</ul>
 	</nav>

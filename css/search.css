@@ -6,6 +6,8 @@
 	border-top: 1px solid #6b727c;
 	border-bottom: 1px solid #575f6a;
 	border-left: 1px solid #575f6a;
+	padding: 15px 20px;
+	margin-left: -12px;
 	
 	-webkit-transition: color 2s;
 }
