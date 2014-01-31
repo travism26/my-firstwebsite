@@ -67,7 +67,11 @@ class User{
 			throw new Exception("Error Processing Request");
 		}
 	}
-
+	public function changepassword($fields, $where){
+		if(!$this->_db->update_password('users', $fields, $where)){
+			throw new Exception("Error Processing Request");
+		}
+	}
 	public function find($user = null){
 		if($user){
 			$field = (is_numeric($user)) ? 'id' : 'username';

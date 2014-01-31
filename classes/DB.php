@@ -109,6 +109,45 @@ class DB{
 		return false;
 	}
 
+		public function update_password($table, $fields, $where = array()){
+		$set = '';
+		$x = 1;
+
+		$operators = array('=', '>', '<', '>=', '<=', 'like');
+		print_r($where);
+		die();
+		$field = $where[0];
+		$operator = $where[1];
+		$value = $where[2];
+
+		foreach($fields as $name => $value){
+			$set .= "{$name} = ?";
+			if($x < count($fields)){
+				$set .= ', ';
+			}
+			$x++;
+		}
+
+		if(in_array($operator, $operators)){
+			$sql = "UPDATE {$table} SET {$set} WHERE {$field} {$operator} ?";
+			echo $sql;
+			die();
+			if(!$this->query($sql, array($value))->error()) {
+				//return $this;
+			}
+		}
+
+
+		//die($set);
+		$sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
+
+		if(!$this->query($sql, $fields)->error()){
+			return true;
+		}
+		return false;
+	}
+
+
 		public function getSearch($table, $where){
 		return $this->action('SELECT *', $table, $where);
 	}
