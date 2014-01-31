@@ -22,7 +22,7 @@ class DB{
 		}
 		return self::$_instance;
 	}
-	public function query($sql, $params = array()){
+	public function query($sql, $params = array(), $username = null){
 		$this->error = false;
 		if($this->_query = $this->_pdo->prepare($sql)){
 			//echo "Success";
@@ -33,6 +33,8 @@ class DB{
 					$x++;
 				}
 			}
+			//print_r($this->_query);
+			//die();
 			if ($this->_query->execute()) {
 				//echo "Success";
 				$this->_results = $this->_query->fetchAll(PDO::FETCH_OBJ);
@@ -40,6 +42,10 @@ class DB{
 			}else{
 				$this->_error = true;
 			}
+		}
+		if ($username !== null) {
+			echo $username;
+			die();
 		}
 		return $this;
 	}
@@ -114,37 +120,40 @@ class DB{
 		$x = 1;
 
 		$operators = array('=', '>', '<', '>=', '<=', 'like');
-		print_r($where);
-		die();
+		//print_r($where);
+		//die();
 		$field = $where[0];
 		$operator = $where[1];
 		$value = $where[2];
+		//$username = $where[2];
+		//die();
 
 		foreach($fields as $name => $value){
-			$set .= "{$name} = ?";
+			$set .= "{$name} = {$value}";
 			if($x < count($fields)){
 				$set .= ', ';
 			}
+			//echo $set;
 			$x++;
 		}
 
 		if(in_array($operator, $operators)){
 			$sql = "UPDATE {$table} SET {$set} WHERE {$field} {$operator} ?";
-			echo $sql;
-			die();
-			if(!$this->query($sql, array($value))->error()) {
-				//return $this;
+			//echo $sql;
+			//die();
+			if(!$this->query($sql, array($value), $where[2])->error()) {
+				return $this;
 			}
 		}
 
 
 		//die($set);
-		$sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
+		//$sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
 
-		if(!$this->query($sql, $fields)->error()){
-			return true;
-		}
-		return false;
+		//if(!$this->query($sql, $fields)->error()){
+			//return true;
+		//}
+		//return false;
 	}
 
 
