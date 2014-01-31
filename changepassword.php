@@ -1,10 +1,10 @@
 <?php
 require_once 'core/init.php';
-
+include 'includes/overall/overallHeader.php';
 $user = new User();
 
 if(!$user->isLoggedIn()){
-	Redirect::to('index.php');
+	//Redirect::to('index.php');
 }
 
 if (Input::exists()) {
@@ -72,3 +72,5 @@ if (Input::exists()) {
 	<input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
 	
 </form>
+
+<?php include 'includes/overall/overallFooter.php'; ?>
