@@ -1,12 +1,12 @@
 <?php
 require_once 'core/init.php';
-
-include 'includes/overall/overallHeader.php';
 if(!$user->isLoggedIn()){
 Session::flash('home', 'You must login before you can view peoples pages!');
-Redirect::to('index.php');
-
+?><script>window.location = "index.php";</script><?php
+//Redirect::to('index.php');
 }
+include 'includes/overall/overallHeader.php';
+
 if(!$username = Input::get('user')){
 	Redirect::to('index.php');
 } elseif (Input::get('user') === $user->data()->username) {

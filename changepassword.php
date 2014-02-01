@@ -47,7 +47,6 @@ if (Input::exists()) {
 		}
 }
 ?>
-
 <form action="" method="post">
 	<div>
 		<label for="username">What is your username</label>
@@ -57,7 +56,6 @@ if (Input::exists()) {
 		<label for="password_new"> New password</label>
 		<input type="password" name="password_new" id="password_new">
 	</div>
-
 	<div class="field">
 		<label for="password_new_again">New password again</label>
 		<input type="password" name="password_new_again" id="password_new_again">
