@@ -54,11 +54,6 @@ if (Input::exists()) {
 		<input type="text" name="username">
 	</div>
 	<div class="field">
-		<label for="password_current">Current Password</label>
-		<input type="password" name="password_current" id="password_current">
-	</div>
-	
-	<div class="field">
 		<label for="password_new"> New password</label>
 		<input type="password" name="password_new" id="password_new">
 	</div>
