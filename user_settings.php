@@ -34,7 +34,6 @@ include 'includes/overall/overallHeader.php'; ?>
 		if (empty($user->data()->profile_pic) === false) {
 			echo '<img src= "', $user->data()->profile_pic, '" alt="'. $user->data()->first_name .'-Profile" class = "profile_picture">';
 		}
-
 		?>
 		<form action = "" method="post" enctype="multipart/form-data">
 			<input type="file" name="profile">

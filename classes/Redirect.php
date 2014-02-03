@@ -2,7 +2,7 @@
 	class Redirect{
 
 		public static function to($location = null){
-			session_write_close();
+			//session_write_close();
 			if($location) {
 				if(is_numeric($location)){
 					switch ($location) {

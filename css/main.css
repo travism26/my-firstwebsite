@@ -240,11 +240,14 @@ nav #subnav li:hover a {
 .profile{
 	background: #f9f9f9;
 	border: 1px dashed #ccc;
-	padding: 5px;
 	width: 25%;
 	min-width: 25%;
 }
 .profile_picture{
 	height: 150px;
-	width: 95%;
+	width: 150px;
+}
+.profile_header{
+	width: 25%;
+	min-width: 25%;
 }

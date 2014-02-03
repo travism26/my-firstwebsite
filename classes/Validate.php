@@ -42,6 +42,12 @@ class Validate {
 								$this->addError("{$item} already exist");
 							}
 						break;
+						case 'exists':
+							$check = $this->_db->get($rule_value, array($item, '=', $value));
+							if(!$check->count()) {
+								$this->addError("{$item} does not exist");
+							}
+						break;
 					}//switch
 
 				}

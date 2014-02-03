@@ -54,7 +54,8 @@ if(Input::exists()){
 			
 			Session::flash('home', 'You registered successfully!');
 			$login = $user->login(Input::get('username'), Input::get('password'), $remember);
-			Redirect::to('index.php');
+			?><script>window.location = "index.php";</script><?php
+			//Redirect::to('index.php');
 
 			} catch(Exception $e){
 				die($e->getMessage());

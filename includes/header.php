@@ -14,7 +14,14 @@
 }
 ?>
 	</div>
-	<div id = 'logo'>
+	<div id = 'logo' class="profile_header">
+	<?php
+	if($user->isLoggedIn()){
+		if($user->data()->profile_pic !==""){
+			echo '<img src= "', $user->data()->profile_pic, '" alt="'. $user->data()->first_name .'-Profile" class = "profile_picture">';	
+		}
+	}
+	?>
 	</div>
 	
 	<?php include 'includes/navigation.php'; ?>

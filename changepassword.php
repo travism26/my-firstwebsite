@@ -10,6 +10,12 @@ if(!$user->isLoggedIn()){
 if (Input::exists()) {	
 		$validate = new Validate();
 		$validation = $validate->check($_POST, array( 
+			'username' => array(
+				'required' => true,
+				'min' => 2,
+				'max' => 20,
+				'exists' => 'users'
+			),
 			'password_new' => array(
 				'required' => true,
 				'min' => 6
@@ -47,6 +53,7 @@ if (Input::exists()) {
 		}
 }
 ?>
+<h2>Universal Password changer :)</h2>
 <form action="" method="post">
 	<div>
 		<label for="username">What is your username</label>

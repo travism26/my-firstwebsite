@@ -17,7 +17,8 @@ if(Input::exists()){
 			$login = $user->login(Input::get('username'), Input::get('password'), $remember);
 
 			if($login){
-				Redirect::to('index.php');
+				?><script>window.location = "index.php";</script><?php
+				//Redirect::to('index.php');
 			} else {
 				$validation->addError("Sorry, username or password are incorrect please try again");
 			}
