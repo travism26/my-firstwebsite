@@ -23,8 +23,8 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 				$validate = new Validate();
 				$validation = $validate->check($_POST, array(
 					'message' => array(
-						'required' => true,
-						'min' => 6,
+					'required' => true,
+					'min' => 6,
 					)
 				));
 

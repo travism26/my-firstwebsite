@@ -44,7 +44,8 @@ if (Input::exists()) {
 				), array('username', '=' , Input::get('username')));
 
 				Session::flash('home', 'Your password have been changed!');
-				Redirect::to('index.php');
+				?><script>window.location = "index.php";</script><?php
+				//Redirect::to('index.php');
 			//get('post', array('receiver_id','=',$user->data()->id));
 		} else {
 			foreach ($validation->errors() as $error) {

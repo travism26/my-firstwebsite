@@ -51,7 +51,6 @@ if(Input::exists()){
 					'joined' => date('Y-m-d H:i:d'),
 					'group' => 1
 				));
-			
 			Session::flash('home', 'You registered successfully!');
 			$login = $user->login(Input::get('username'), Input::get('password'), $remember);
 			?><script>window.location = "index.php";</script><?php
