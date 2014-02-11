@@ -24,6 +24,12 @@ if(Session::exists('home')){
 		<td>
 			<h3>Locked Account</h3>
 		</td>
+		<td>
+			<h3>Permissions</h3>
+		</td>
+		<td>
+			<h3>Joined</h3>
+		</td>
 	</tr>
 
 </table>
