@@ -254,3 +254,12 @@ nav #subnav li:hover a {
 	width: 25%;
 	min-width: 25%;
 }
+.users_row {
+	
+}
+.users_table td{
+	margin: 0px;
+	
+	border: 1px solid grey;
+	padding: 5px;
+}

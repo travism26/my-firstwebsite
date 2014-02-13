@@ -1,4 +1,4 @@
-?php 
+<?php 
 require_once 'core/init.php';
 
 include 'includes/overall/overallHeader.php'; ?>
@@ -7,30 +7,68 @@ if(Session::exists('home')){
 	echo '<p>'.Session::flash('home') .'</p>';
 }
 ?>
-<table>
-	<tr>
+<table class="users_table">
+	<tr class="users_row">
 		<td>
-			<h3>Username</h3>
+			<label>Username</label>
 		</td>
 		<td>
-			<h3>First Name</h3>
+			<label>First Name</h3>
 		</td>
 		<td>
-			<h3>Last Name</h3>
+			<label>Last Name</label>
 		</td>
 		<td>
-			<h3>Email</h3>
+			<label>Email</label>
 		</td>
 		<td>
-			<h3>Locked Account</h3>
+			<label>Locked Account</label>
 		</td>
 		<td>
-			<h3>Permissions</h3>
+			<label>Permissions</label>
 		</td>
 		<td>
-			<h3>Joined</h3>
+			<label>Joined</label>
+		</td>
+		<td>
+			<label>Suspend Account</label>
 		</td>
 	</tr>
+	<?php
+	//this is where we will be creating <tr> with user data
+	//$x = 3;
+	//foreach ($x as $xval) {
+		
+	?>
+	<tr class="users_row">
+		<td>
+			<label>username</label>
+		</td>
+		<td>
+			<label>First Name</label>
+		</td>
+		<td>
+			<label>Last Name</label>
+		</td>
+		<td>
+			<label>Email</label>
+		</td>
+		<td>
+			<label>Locked Account</label>
+		</td>
+		<td>
+			<label>Permissions</label>
+		</td>
+		<td>
+			<label>Joined</label>
+		</td>
+		<td>
+			<input type="button" value="Suspend">
+		</td>
+	</tr>
+<?php
+//}
+?>
 
 </table>
 
