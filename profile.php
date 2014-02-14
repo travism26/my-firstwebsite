@@ -74,8 +74,15 @@ if(!$username = Input::get('user')){
 		<?php
 		//If the user is loggedin we want to display some post data.
 		//this creates the SQL script to load the post data as an object.
-		$postDataSql1 = DB::getInstance()->get('post', array('receiver_id','=',$data->id));
-		$postDataSql = array_reverse($postDataSql1);
+
+		/*
+
+SELECT * 
+FROM  `post` 
+WHERE receiver_id =35
+ORDER BY post_id DESC 
+		*/
+		$postDataSql = DB::getInstance()->get_orderBy('post', array('receiver_id','=',$data->id), "ORDER BY post_id DESC");
 		foreach ($postDataSql->results() as $postDataSql) {
 			$username = DB::getInstance()->get('users', array('id','=',$postDataSql->user_id));
 		 ?>

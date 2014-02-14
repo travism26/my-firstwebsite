@@ -26,11 +26,6 @@ class DB{
 		$this->error = false;
 			if ($username !== null) {
 				if($this->_query = $this->_pdo->prepare($sql)){
-			//echo "Success";
-			
-			
-				//print_r($this->_query);
-				//die();
 					$this->_query->bindValue(1, $username);
 				if ($this->_query->execute()) {
 					//echo "Success";
@@ -73,6 +68,25 @@ class DB{
 
 			if(in_array($operator, $operators)){
 				$sql = "{$action} FROM {$table} WHERE {$field} {$operator} ?";
+				if(!$this->query($sql, array($value))->error()) {
+					return $this;
+				}
+			}
+		}
+	}
+
+	public function get_orderby($table, $where, $orderBy){
+		if (count($where) ===3) {
+			$operators = array('=', '>', '<', '>=', '<=', 'like', 'is not');
+
+			$field = $where[0];
+			$operator = $where[1];
+			$value = $where[2];
+
+			if(in_array($operator, $operators)){
+				$sql = "SELECT * FROM {$table} WHERE {$field} {$operator} ? " . $orderBy;
+				//echo $sql;
+				//die();
 				if(!$this->query($sql, array($value))->error()) {
 					return $this;
 				}
@@ -158,15 +172,6 @@ class DB{
 				return $this;
 			}
 		}
-
-
-		//die($set);
-		//$sql = "UPDATE {$table} SET {$set} WHERE id = {$id}";
-
-		//if(!$this->query($sql, $fields)->error()){
-			//return true;
-		//}
-		//return false;
 	}
 
 

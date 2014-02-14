@@ -27,15 +27,11 @@ if (Input::exists()) {
 			)
 		));
 		if ($validation->passed()) {
-			//change the password. check if the password match.
-
-			 
-				//this is where we change our password
 /*
-
-'password' => Hash::make(Input::get('password'), $salt),
-					'salt' => $salt,
-
+SELECT * 
+FROM  `post` 
+WHERE receiver_id =35
+order by post_id desc
 */
 				$salt = Hash::salt(32);
 				$user->changepassword(array(
