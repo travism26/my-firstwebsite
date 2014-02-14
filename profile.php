@@ -74,7 +74,8 @@ if(!$username = Input::get('user')){
 		<?php
 		//If the user is loggedin we want to display some post data.
 		//this creates the SQL script to load the post data as an object.
-		$postDataSql = DB::getInstance()->get('post', array('receiver_id','=',$data->id));
+		$postDataSql1 = DB::getInstance()->get('post', array('receiver_id','=',$data->id));
+		$postDataSql = array_reverse($postDataSql1);
 		foreach ($postDataSql->results() as $postDataSql) {
 			$username = DB::getInstance()->get('users', array('id','=',$postDataSql->user_id));
 		 ?>

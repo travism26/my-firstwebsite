@@ -49,7 +49,7 @@ if (Input::exists()) {
 			//get('post', array('receiver_id','=',$user->data()->id));
 		} else {
 			foreach ($validation->errors() as $error) {
-				echo $error, '<br>';
+				//echo $error, '<br>';
 			}
 		}
 }

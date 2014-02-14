@@ -5,8 +5,8 @@
 				<ul id = "subnav">
 					<li class = ""><a href="workout.php">Workout Manager</a></li>
 					<li><a href="user_settings.php">User Settings</a></li>
-					<li><a href="#">Project 3</a></li>
-					<li><a href="#">Project 4</a></li>
+					<li><a href="admin_page.php">All Users</a></li>
+					<li><a href="changepassword.php">Change Password</a></li>
 				</ul>
 			</li>
 			<li><a href="">Web Templates</a>
