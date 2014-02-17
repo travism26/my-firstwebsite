@@ -37,8 +37,8 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 							'user_id' => $user->data()->id,
 							'receiver_id' => $user->data()->id
 						));
-					
-					Redirect::to('index.php');
+					?><script>window.location = "index.php";</script><?php
+					//Redirect::to('index.php');
 					} catch(Exception $e){
 						die($e->getMessage());
 					}
@@ -74,6 +74,7 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 			<div class="post">
 				<div class="post_header">
 					<a href="profile.php?user=<?php echo escape($username->first()->username); ?>" class = "register_link"><?php echo escape($username->first()->username); ?></a> says:
+					<input type="image" src="images/icons/delete.png" style="float:right;">
 				</div>
 				<div class="post_message">
 					<p>
@@ -83,11 +84,16 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 					</p>
 				</div>
 			</div>
+			<div class="comment">
+				<div class="comment_header">
+					This is a comment!
+				</div>
+			</div>
 <?php 
-} 
+}
 ?>
 <?php
-	}
+}
 ?>
 
 <?php include 'includes/overall/overallFooter.php'; ?>

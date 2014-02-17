@@ -8,9 +8,11 @@ Session::flash('home', 'You must login before you can view peoples pages!');
 include 'includes/overall/overallHeader.php';
 
 if(!$username = Input::get('user')){
-	Redirect::to('index.php');
+	?><script>window.location = "index.php";</script><?php
+	//Redirect::to('index.php');
 } elseif (Input::get('user') === $user->data()->username) {
-	Redirect::to('index.php');
+	?><script>window.location = "index.php";</script><?php
+	//Redirect::to('index.php');
 } else {
 	$other_user = new User($username);
 	if(!$other_user->exists()){
@@ -41,7 +43,8 @@ if(!$username = Input::get('user')){
 							'user_id' => $user->data()->id,
 							'receiver_id' => $data->id
 						));
-					Redirect::to("profile.php?user=".$data->username);
+						?><script>window.location.replace("<?php echo "profile.php?user=".$data->username; ?>")</script><?php
+					//Redirect::to("profile.php?user=".$data->username);
 					} catch(Exception $e){
 						die($e->getMessage());
 					}
