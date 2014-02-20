@@ -41,7 +41,8 @@ if(!$username = Input::get('user')){
 						$user->createPost(array(
 							'message' => Input::get('message'),
 							'user_id' => $user->data()->id,
-							'receiver_id' => $data->id
+							'receiver_id' => $data->id,
+							'active' => 0
 						));
 						?><script>window.location.replace("<?php echo "profile.php?user=".$data->username; ?>")</script><?php
 					//Redirect::to("profile.php?user=".$data->username);

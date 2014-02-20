@@ -35,7 +35,8 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 						$user->createPost(array(
 							'message' => Input::get('message'),
 							'user_id' => $user->data()->id,
-							'receiver_id' => $user->data()->id
+							'receiver_id' => $user->data()->id,
+							'active' => 0
 						));
 					?><script>window.location = "index.php";</script><?php
 					//Redirect::to('index.php');
@@ -70,11 +71,15 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 		foreach ($postDataSql->results() as $postDataSql) {
 			$username = DB::getInstance()->get('users', array('id','=',$postDataSql->user_id));
 			//$post_user_data = $username->results();
+			if($postDataSql->active ==1){
+				echo "Message not active";
+			}else{
 		 ?>
 			<div class="post">
 				<div class="post_header">
 					<a href="profile.php?user=<?php echo escape($username->first()->username); ?>" class = "register_link"><?php echo escape($username->first()->username); ?></a> says:
-					<input type="image" src="images/icons/delete.png" style="float:right;">
+					<input type="image" src="images/icons/delete.png" style="float:right;" name="deletePost" onclick="deletePost()">
+					<input type="hidden" id="post_id1" value="<?php echo escape($postDataSql->post_id); ?>">
 				</div>
 				<div class="post_message">
 					<p>
@@ -89,7 +94,8 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 					This is a comment!
 				</div>
 			</div>
-<?php 
+<?php
+} 
 }
 ?>
 <?php

@@ -10,3 +10,8 @@ function getUsername(value){
 		});
 	};
 }
+function deletePost(){
+	//alert(postID);
+	postID = document.getElementById("post_id1").value;
+	alert(postID);
+}
