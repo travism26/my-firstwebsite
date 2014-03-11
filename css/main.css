@@ -19,7 +19,7 @@ body{
 	border-top: rgba(0,0,0,0.9);
 	display: -webkit-box;
 	border-radius: 5px 5px 0px 0px;
-	/* do you want to display these elements on top of eachother or side to side*/
+	/* do you want to display these elements on top of eachother or side to side */
 	-webkit-box-orient: vertical;
 	-webkit-box-flex: 1;
 }
