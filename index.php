@@ -78,9 +78,11 @@ integrated into Firefox, IE, and other browsers some of the settings will not di
 			<div class="post">
 				<div class="post_header">
 					<a href="profile.php?user=<?php echo escape($username->first()->username); ?>" class = "register_link"><?php echo escape($username->first()->username); ?></a> says:
-					<input type="image" src="images/icons/delete.png" style="float:right;" name="deletePost" onclick="deletePost(document.getElementById('post_id_<?php echo escape($postDataSql->post_id); ?>').value)">
-					<input type="hidden" id="post_id_<?php echo escape($postDataSql->post_id); ?>" value="<?php echo escape($postDataSql->post_id); ?>">
-					id="post_id_<?php echo escape($postDataSql->post_id); ?>"
+					<form action="message.php" method="GET" style="margin:0; padding:0; display: inline;">
+					<input type="image" src="images/icons/delete.png" style="float:right;">
+					<input type="hidden" name="post_id" id="post_id_<?php echo escape($postDataSql->post_id); ?>" value="<?php echo escape($postDataSql->post_id); ?>">
+					<input type="hidden" name="message_token" value="<?php echo Token::generate(); ?>">
+					</form>
 				</div>
 				<div class="post_message">
 					<p>

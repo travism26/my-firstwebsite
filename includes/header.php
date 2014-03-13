@@ -4,7 +4,6 @@
 	<div class = "login">
 		<?php 
 			if($user->isLoggedIn()){
-		
 		?>
 		<div class = 'login'>
 			<p>Welcome <a href="profile.php?user=<?php echo escape($user->data()->username); ?>" class = "register_link"><?php echo escape($user->data()->username); ?></a>!</p>
