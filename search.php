@@ -1,7 +1,3 @@
-<style type="text/css">
-	<?php include 'css/search.css'; ?>
-</style>
-
 <?php
 	require_once 'core/init.php';
 if (isset($_POST['partialName']) === true && empty($_POST) === false) {
@@ -27,3 +23,6 @@ if (isset($_POST['partialName']) === true && empty($_POST) === false) {
 	echo "hello";
 }
 ?>
+<style type="text/css">
+	<?php include 'css/search.css'; ?>
+</style>

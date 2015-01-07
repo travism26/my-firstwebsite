@@ -10,6 +10,6 @@ function getUsername(value){
 		});
 	};
 }
-function deletePost(var){
+function deletePost(){
 
 }
